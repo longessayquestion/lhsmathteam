@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="image-row-top">
+    <a id="t1">
+      <input type="image" (click)="moveBox(-500)" class="img1" src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png" />
+    </a>
+    <a id="t2">
+      <input type="image" (click)="moveBox(-300)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+    </a>
+    <a id="t3">
+      <input type="image" (click)="moveBox(-100)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+    </a>
+  </div>
+
+  <div class="background-wrapper">
+    <img 
+      src="https://static.vecteezy.com/system/resources/thumbnails/017/276/199/small_2x/abstract-orange-and-yellow-gradient-color-background-with-blank-space-for-graphic-design-element-vector.jpg" 
+      class="box" 
+      [style.transform]="getTransform()" />
+    <img
+      src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png"
+      class="center-image"
+      [style.transform]="getCenterImageTransform()"
+    />
+    <h1
+      class="name"
+      [style.transform]="getCenterImageTransform()">
+      Jordan Lui
+    </h1>
+    <h3
+      class="grade"
+      [style.transform]="getCenterImageTransform()">
+      Junior
+    </h3>
+    <h6
+      class="announce1"
+      [style.transform]="getCenterImageTransform()">
+      date 1
+    </h6>
+    <h6
+      class="announce2"
+      [style.transform]="getCenterImageTransform()">
+      date 2
+    </h6>
+    <h6
+      class="announce3"
+      [style.transform]="getCenterImageTransform()">
+      date 3
+    </h6>
+  </div>
+
+  <div class="image-row-bottom">
+    <a id="t1">
+      <input type="image" (click)="moveBox(500)" class="img1" src="https://www.vecteezy.com/png/50756164-empty-white-board-with-clips-for-clean-presentations" />
+    </a>
+    <a id="t2">
+      <input type="image" (click)="moveBox(0)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+    </a>
+    <a id="t3">
+      <input type="image" (click)="moveBox(-500)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+    </a>
+  </div>
+
+</ion-content>
