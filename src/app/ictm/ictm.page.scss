@@ -1,0 +1,11 @@
+.home-image-button {
+  position: fixed;
+  bottom: 2vh;      /* small vertical margin relative to viewport height */
+  left: 50%;          /* position left edge at center of viewport */
+  transform: translateX(-50%);
+  width: 33vw;      /* one third of viewport width */
+  height: auto;     /* keep aspect ratio */
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+}

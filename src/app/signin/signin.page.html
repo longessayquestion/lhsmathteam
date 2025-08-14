@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true">
+  <div class="background-wrapper">
+    <img 
+      src="/assets/img/Math Team App BG 3x.jpg"
+      class="box" />
+  </div>
+
+  <img
+    src="/assets/img/sign_in_icon.png"
+    class="sign-in-image"
+    alt="Sign In Icon"
+  />
+
+  <img
+    src="/assets/img/sign_in_background2.png"
+    class="form-background"
+    alt="Sign In Form"
+  />
+
+  <p style="color: red;">{{ errorMessage }}</p>
+
+  <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
+    <div>
+      <label for="username" style="font-family: font; font-size: 3vh; color: white;">Username:</label><br />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="form.username"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="password" style="font-family: font; font-size: 3vh; color: white;">Favorite Number:</label><br />
+      <input
+        type="number"
+        id="password"
+        name="password"
+        [(ngModel)]="form.password"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="grade" style="font-family: font; font-size: 3vh; color: white;">Grade:</label><br />
+      <select
+        id="grade"
+        name="grade"
+        [(ngModel)]="form.grade"
+        required
+      >
+        <option value="" disabled selected>Select your grade</option>
+        <option value="freshman">Freshman</option>
+        <option value="sophomore">Sophomore</option>
+        <option value="junior">Junior</option>
+        <option value="senior">Senior</option>
+      </select>
+    </div>
+
+    <button type="submit" style="font-family: font;" [disabled]="!signInForm.form.valid">
+      Submit
+    </button>
+    <button (click)="signOutUser()" style="font-family: font;">
+      Sign Out
+    </button>
+  </form>
+
+  <img
+    src="/assets/img/home_icon2.png"
+    class="home-image-button"
+    (click)="goToHomePage()"
+    alt="Home Button"
+  />
+</ion-content>

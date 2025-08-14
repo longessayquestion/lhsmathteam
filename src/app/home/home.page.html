@@ -1,27 +1,21 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div class="image-row-top">
     <a id="t1">
-      <input type="image" (click)="moveBox(-500)" class="img1" src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png" />
+      <input type="image" (click)="goToSignInPage()" class="img1" src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png" />
     </a>
     <a id="t2">
-      <input type="image" (click)="moveBox(-300)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+      <input type="image" (click)="goToCoachesPage()" class="img1" src="/assets/img/about_the_coaches.png" />
     </a>
     <a id="t3">
-      <input type="image" (click)="moveBox(-100)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+      <input type="image" (click)="goToInfoPage()" class="img1" src="/assets/img/about_us_icon2.png" />
     </a>
   </div>
 
   <div class="background-wrapper">
     <img 
-      src="https://static.vecteezy.com/system/resources/thumbnails/017/276/199/small_2x/abstract-orange-and-yellow-gradient-color-background-with-blank-space-for-graphic-design-element-vector.jpg" 
-      class="box" 
-      [style.transform]="getTransform()" />
+      src="/assets/img/Math Team App BG 3x.jpg"
+      class="box" />
     <img
       src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png"
       class="center-image"
@@ -30,22 +24,22 @@
     <h1
       class="name"
       [style.transform]="getCenterImageTransform()">
-      Jordan Lui
+      {{ userName }}
     </h1>
     <h3
       class="grade"
       [style.transform]="getCenterImageTransform()">
-      Junior
+      {{ grade }}
     </h3>
     <h6
       class="announce1"
       [style.transform]="getCenterImageTransform()">
-      date 1
+      Meet 1: dd-mm-yyyy
     </h6>
     <h6
       class="announce2"
       [style.transform]="getCenterImageTransform()">
-      date 2
+      test
     </h6>
     <h6
       class="announce3"
@@ -54,15 +48,33 @@
     </h6>
   </div>
 
+  <div>
+    <h1 
+    class="game-text"
+    [style.transform]="getCenterImageTransform()">
+      coming soon!
+    </h1>
+  </div>
+
+  <div>
+    <a id="ictm">
+      <input type="image" 
+      (click)="goToIctmPage()" 
+      class="ictm-button" 
+      [style.transform]="getCenterImageTransform()"
+      src="/assets/img/potd_icon.png" />
+    </a>
+  </div>
+
   <div class="image-row-bottom">
     <a id="t1">
-      <input type="image" (click)="moveBox(500)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+      <input type="image" (click)="moveBox(100)" class="img1" src="/assets/img/potd_icon.png" />
     </a>
     <a id="t2">
-      <input type="image" (click)="moveBox(0)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+      <input type="image" (click)="moveBox(0)" class="img1" src="/assets/img/home_icon2.png" />
     </a>
     <a id="t3">
-      <input type="image" (click)="moveBox(-500)" class="img1" src="https://png.pngtree.com/png-vector/20211122/ourmid/pngtree-white-board-text-box-for-draw-png-image_4038522.png" />
+      <input type="image" (click)="moveBox(-100)" class="img1" src="/assets/img/games_icon.png" />
     </a>
   </div>
 
