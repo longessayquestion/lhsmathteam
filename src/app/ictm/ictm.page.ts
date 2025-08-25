@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../../firebase';
 import { Router } from '@angular/router';
@@ -10,8 +11,9 @@ const db = getFirestore(app);
 @Component({
   selector: 'app-ictm',
   templateUrl: './ictm.page.html',
+  styleUrls: ['./ictm.page.scss'],
   standalone: true,
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, IonContent]
 })
 
 export class ICTMPage implements OnInit {

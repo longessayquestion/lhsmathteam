@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class HomePage {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private navCtrl: NavController) {}
   x = 0; // Only X position needed
 
   moveBox(x: number) {
@@ -22,24 +23,31 @@ export class HomePage {
     return `translateX(${this.x}vw)`;
   }
 
-  getCenterImageTransform(): string {
-    return `translate(calc(-50% + ${this.x}vw), -90%)`;
-  }
-
   goToInfoPage() {
-    this.router.navigate(['/info']);
+    this.navCtrl.navigateForward(['/info']);
   }
 
   goToCoachesPage() {
-    this.router.navigate(['/coaches'])
+    this.navCtrl.navigateForward(['/coaches']);
   }
 
   goToSignInPage() {
-    this.router.navigate(['/signin'])
+    this.navCtrl.navigateForward(['/signin']);
   }
 
   goToIctmPage() {
-    this.router.navigate(['/ictm'])
+    this.navCtrl.navigateForward(['/ictm']);
+  }
+
+  goToHomePage() {
+    this.navCtrl.navigateRoot(['/home']);
+  }
+
+  showGameMessage = false;
+
+  showComingSoon() {
+    this.showGameMessage = true;
+    setTimeout(() => (this.showGameMessage = false), 2500);
   }
 
   userName: string = '';

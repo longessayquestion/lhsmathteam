@@ -1,75 +1,53 @@
 <ion-content [fullscreen]="true">
-  <div class="background-wrapper">
-    <img 
-      src="/assets/img/Math Team App BG 3x.jpg"
-      class="box" />
+  <div class="background-wrapper"></div>
+
+  <div class="form-wrapper">
+  <img *ngIf="!loggedInUserName" src="/assets/img/sign_in_icon.png" class="sign-in-image" alt="Sign In Icon" />
+
+    <div class="form-card">
+
+      <div *ngIf="errorMessage" class="error-banner">
+        <div class="error-title">{{ errorMessage }}</div>
+      </div>
+
+      <ng-container *ngIf="!loggedInUserName">
+        <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="app-input" [(ngModel)]="form.username" required />
+          </div>
+
+          <div>
+            <label for="password">Favorite Number:</label>
+            <input type="number" id="password" name="password" class="app-input" [(ngModel)]="form.password" required />
+          </div>
+
+          <div>
+            <label for="grade">Grade:</label>
+            <ion-select id="grade" name="grade" class="app-input" [(ngModel)]="form.grade" interface="alert" okText="OK" cancelText="Cancel">
+              <ion-select-option value="">Select your grade</ion-select-option>
+              <ion-select-option value="freshman">Freshman</ion-select-option>
+              <ion-select-option value="sophomore">Sophomore</ion-select-option>
+              <ion-select-option value="junior">Junior</ion-select-option>
+              <ion-select-option value="senior">Senior</ion-select-option>
+            </ion-select>
+          </div>
+
+          <button type="submit" class="btn-primary" [disabled]="!signInForm.form.valid">Submit</button>
+        </form>
+      </ng-container>
+
+      <ng-container *ngIf="loggedInUserName">
+        <div class="signed-in-message">Signed in as <strong>{{ loggedInUserName }}</strong></div>
+        <div class="signed-in-controls">
+          <button type="button" class="btn-secondary" (click)="signOutUser()">Sign Out</button>
+        </div>
+      </ng-container>
+
   </div>
-
-  <img
-    src="/assets/img/sign_in_icon.png"
-    class="sign-in-image"
-    alt="Sign In Icon"
-  />
-
-  <img
-    src="/assets/img/sign_in_background2.png"
-    class="form-background"
-    alt="Sign In Form"
-  />
-
-  <p style="color: red;">{{ errorMessage }}</p>
-
-  <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
-    <div>
-      <label for="username" style="font-family: font; font-size: 3vh; color: white;">Username:</label><br />
-      <input
-        type="text"
-        id="username"
-        name="username"
-        [(ngModel)]="form.username"
-        required
-      />
+  <div class="sign-in-footer">
+      <img src="/assets/img/home_icon2.png" class="home-image-button" (click)="goToHomePage()" alt="Home Button" />
     </div>
 
-    <div>
-      <label for="password" style="font-family: font; font-size: 3vh; color: white;">Favorite Number:</label><br />
-      <input
-        type="number"
-        id="password"
-        name="password"
-        [(ngModel)]="form.password"
-        required
-      />
-    </div>
-
-    <div>
-      <label for="grade" style="font-family: font; font-size: 3vh; color: white;">Grade:</label><br />
-      <select
-        id="grade"
-        name="grade"
-        [(ngModel)]="form.grade"
-        required
-      >
-        <option value="" disabled selected>Select your grade</option>
-        <option value="freshman">Freshman</option>
-        <option value="sophomore">Sophomore</option>
-        <option value="junior">Junior</option>
-        <option value="senior">Senior</option>
-      </select>
-    </div>
-
-    <button type="submit" style="font-family: font;" [disabled]="!signInForm.form.valid">
-      Submit
-    </button>
-    <button (click)="signOutUser()" style="font-family: font;">
-      Sign Out
-    </button>
-  </form>
-
-  <img
-    src="/assets/img/home_icon2.png"
-    class="home-image-button"
-    (click)="goToHomePage()"
-    alt="Home Button"
-  />
+  </div>
 </ion-content>

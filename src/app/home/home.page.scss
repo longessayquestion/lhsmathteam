@@ -29,7 +29,7 @@
 
 .image-row-top {
   display: flex;
-  justify-content: space-around; /* or space-between */
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   position: fixed;
@@ -48,15 +48,31 @@
   padding: 0;
 }
 
+/* Prevent the fixed bottom bar from overflowing and make bottom icons scale */
+.image-row-bottom {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.image-row-bottom input[type="image"],
+.img1 {
+  max-height: 100%;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .image-row-bottom {
   display: flex;
   justify-content: space-around; /* or space-between */
   align-items: center;
   width: 100%;
   position: fixed;
-  bottom: 0;
+  bottom: 40px;
   z-index: 1000;
-  padding: 3vw;
+  padding: 1.5vw 3vw;
+  height: var(--bottom-row-height, 12vh);
 }
 
 /* Style the input buttons */
@@ -83,106 +99,61 @@ img {
 }
 
 .background-wrapper {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  min-height: 100dvh;
+  background-image: url('/assets/img/Math Team App BG 3x.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
   overflow: hidden;
 }
-
-.box {
-  width: 125%;
-  height: 125%;
-  object-fit: cover;
+.center-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* vertically center in the middle area */
+  gap: 0.5rem;
+  min-height: calc(100dvh - var(--top-row-height, 10vh) - var(--bottom-row-height, 12vh));
+  padding-top: 0;
 }
 
-.center-image {
-  position: absolute;
-  bottom: 34%;
+.coming-soon {
+  position: fixed;
   left: 50%;
-  width: 45%;
-  height: auto;
-  transition: transform 0.4s ease;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'font', sans-serif;
+  font-size: 1.2rem;
 }
 
 .name {
-  position: absolute;
-  bottom: 35%; // You can adjust this to position it higher or lower
-  left: 50%;
-  width: 80%; // Adjust for responsive width of text
-  text-align: center;
-  color: rgb(255, 255, 255); // Adjust for visibility on the background
-  transform: translateX(-50%); // Center it horizontally
-  z-index: 10; // Ensure it's above the background and images
-  transition: transform 0.4s ease;
+  color: #fff;
   font-family: 'font', sans-serif;
-  font-size: 15vw;
-  text-shadow: 
-    2px 2px 0 black, /* Shadow to the right and bottom */
-    -2px -2px 0 black, /* Shadow to the left and top */
-    2px -2px 0 black, /* Shadow to the top right */
-    -2px 2px 0 black; /* Shadow to the bottom left */
+  font-size: clamp(4rem, 10vw, 6rem);
+  margin: 0;
+  text-align: center;
+  text-shadow: 2px 2px 0 black, -2px -2px 0 black;
 }
 
 .grade {
-  position: absolute;
-  bottom: 32%; // You can adjust this to position it higher or lower
-  left: 50%;
-  width: 80%; // Adjust for responsive width of text
-  text-align: center;
-  color: rgb(255, 255, 255); // Adjust for visibility on the background
-  transform: translateX(-50%); // Center it horizontally
-  z-index: 10; // Ensure it's above the background and images
-  transition: transform 0.4s ease;
+  color: #fff;
   font-family: 'font', sans-serif;
-  font-size: 10vw;
-  text-shadow: 
-    2px 2px 0 black, /* Shadow to the right and bottom */
-    -2px -2px 0 black, /* Shadow to the left and top */
-    2px -2px 0 black, /* Shadow to the top right */
-    -2px 2px 0 black; /* Shadow to the bottom left */
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 0;
+  text-align: center;
+  text-shadow: 2px 2px 0 black, -2px -2px 0 black;
 }
 
-.announce1 {
-  position: absolute;
-  bottom: 28%; // You can adjust this to position it higher or lower
-  left: 50%;
-  width: 80%; // Adjust for responsive width of text
-  text-align: center;
-  color: rgb(0, 0, 0); // Adjust for visibility on the background
-  transform: translateX(-50%); // Center it horizontally
-  z-index: 10; // Ensure it's above the background and images
-  transition: transform 0.4s ease;
-  font-family: 'font', sans-serif;
-  font-size: 7vw;
-}
-
-.announce2 {
-  position: absolute;
-  bottom: 24%; // You can adjust this to position it higher or lower
-  left: 50%;
-  width: 80%; // Adjust for responsive width of text
-  text-align: center;
-  color: rgb(0, 0, 0); // Adjust for visibility on the background
-  transform: translateX(-50%); // Center it horizontally
-  z-index: 10; // Ensure it's above the background and images
-  transition: transform 0.4s ease;
-  font-family: 'font', sans-serif;
-  font-size: 7vw;
-}
-
-.announce3 {
-  position: absolute;
-  bottom: 20%; // You can adjust this to position it higher or lower
-  left: 50%;
-  width: 80%; // Adjust for responsive width of text
-  text-align: center;
-  color: rgb(0, 0, 0); // Adjust for visibility on the background
-  transform: translateX(-50%); // Center it horizontally
-  z-index: 10; // Ensure it's above the background and images
-  transition: transform 0.4s ease;
-  font-family: 'font', sans-serif;
-  font-size: 7vw;
-}
 
 .game-text {
   position: absolute;
@@ -200,6 +171,24 @@ img {
   bottom: 18%; // You can adjust this to position it higher or lower
   right: 117%;
   transition: transform 0.4s ease;
+}
+.announcements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.announce1,
+.announce2,
+.announce3 {
+  color: #fff;
+  text-align: center;
+  font-family: 'font', sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.25rem);
+  text-shadow: 1px 1px 0 black;
+  margin: 0;
 }
 
 h1 {

@@ -13,69 +13,44 @@
   </div>
 
   <div class="background-wrapper">
-    <img 
-      src="/assets/img/Math Team App BG 3x.jpg"
-      class="box" />
-    <img
-      src="https://static.vecteezy.com/system/resources/thumbnails/033/882/148/small_2x/transparent-background-person-icon-free-png.png"
-      class="center-image"
-      [style.transform]="getCenterImageTransform()"
-    />
-    <h1
-      class="name"
-      [style.transform]="getCenterImageTransform()">
-      {{ userName }}
-    </h1>
-    <h3
-      class="grade"
-      [style.transform]="getCenterImageTransform()">
-      {{ grade }}
-    </h3>
-    <h6
-      class="announce1"
-      [style.transform]="getCenterImageTransform()">
-      Meet 1: dd-mm-yyyy
-    </h6>
-    <h6
-      class="announce2"
-      [style.transform]="getCenterImageTransform()">
-      test
-    </h6>
-    <h6
-      class="announce3"
-      [style.transform]="getCenterImageTransform()">
-      date 3
-    </h6>
+    <div class="center-content">
+      <h1 class="name">{{ userName }}</h1>
+      <h3 class="grade">{{ grade }}</h3>
+      <div class="announcements">
+        <h6 class="announce1">Meet 1: dd-mm-yyyy</h6>
+        <h6 class="announce2">test</h6>
+        <h6 class="announce3">date 3</h6>
+      </div>
+    </div>
   </div>
 
   <div>
-    <h1 
-    class="game-text"
-    [style.transform]="getCenterImageTransform()">
+  <h1 class="game-text">
       coming soon!
     </h1>
   </div>
 
   <div>
     <a id="ictm">
-      <input type="image" 
-      (click)="goToIctmPage()" 
-      class="ictm-button" 
-      [style.transform]="getCenterImageTransform()"
-      src="/assets/img/potd_icon.png" />
+  <input type="image" 
+  (click)="goToIctmPage()" 
+  class="ictm-button" 
+  src="/assets/img/potd_icon.png" />
     </a>
   </div>
 
   <div class="image-row-bottom">
     <a id="t1">
-      <input type="image" (click)="moveBox(100)" class="img1" src="/assets/img/potd_icon.png" />
+      <input type="image" (click)="goToIctmPage()" class="img1" src="/assets/img/potd_icon.png" />
     </a>
     <a id="t2">
-      <input type="image" (click)="moveBox(0)" class="img1" src="/assets/img/home_icon2.png" />
+      <input type="image" (click)="goToHomePage()" class="img1" src="/assets/img/home_icon2.png" />
     </a>
     <a id="t3">
-      <input type="image" (click)="moveBox(-100)" class="img1" src="/assets/img/games_icon.png" />
+      <input type="image" (click)="showComingSoon()" class="img1" src="/assets/img/games_icon.png" />
     </a>
   </div>
+
+  <div *ngIf="showGameMessage" class="coming-soon">coming soon!</div>
 
 </ion-content>
